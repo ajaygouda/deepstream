@@ -1,0 +1,23 @@
+/* Import typography, theme, and component styles */
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("theme.css");
+@import url("button.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("home.css");
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.3;
+}
+

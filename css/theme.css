@@ -1,0 +1,48 @@
+/* ===== Theme Variables ===== */
+:root {
+  /* Core palette */
+  --primary-color: #0a3d62;
+  --secondary-color: #01a3a4;
+  --accent-color: #f39c12;
+  --text-color: #333;
+  --bg-color: #fff;
+
+  /* Gradient colors */
+  --primary-gradient-start: #174177;
+  --primary-gradient-end: #18e5ea;
+
+  /* Light/Dark variants */
+  --light-color: #fff;
+  --light-color-hover: #f1f2f6;
+  --dark-color: #000;
+  --dark-color-hover: #2f3542;
+
+  /* Typography */
+  --font-primary: "Google Sans Flex", "Segoe UI", Arial, sans-serif;
+  --font-secondary: "Comfortaa", "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== Container Utility ===== */
+.container {
+  max-width: 1280px; /* keeps content from stretching too wide */
+  margin: 0 auto; /* centers content horizontally */
+  padding: 0 20px; /* adds breathing room on left/right */
+}
+
+section {
+  padding: 80px 0; /* vertical spacing for sections */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .container {
+    max-width: 90%; /* shrink width for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; /* full width for mobile */
+    padding: 0 15px;
+  }
+}
