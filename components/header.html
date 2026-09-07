@@ -3,7 +3,7 @@
     <!-- Logo (left side) -->
     <div class="header__logo">
       <img
-        src="assets/dark_logo.svg"
+        src="assets/light_logo.svg"
         alt="Deepstream Logo"
         class="header__logo-image header__logo-image--desktop"
       />
@@ -17,13 +17,16 @@
     <!-- Right side controls -->
     <div class="header__actions">
       <!-- Navigation -->
-      <nav class="header__nav" id="nav-links">
-        <a href="#" class="header__nav-link">Services</a>
-        <a href="#" class="header__nav-link">About</a>
-        <a href="#" class="header__nav-link">Contact</a>
-      </nav>
-      
-      <button class="button button--md button--primary-outlined" id="consult-button">
+      <div class="header__search">
+        <input type="text" placeholder="Search" class="header__search-input" />
+        <button class="header__search-button" type="button" aria-label="Search">
+          <img src="assets/icons/icon-search.svg" alt="Search" />
+        </button>
+      </div>
+      <button
+        class="button button--md button--primary-outlined"
+        id="consult-button"
+      >
         Consult Now
       </button>
       <button class="header__menu-toggle" id="menu-toggle">&#9776;</button>

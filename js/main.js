@@ -7,6 +7,17 @@ function loadComponent(id, file) {
 loadComponent("header", "components/header.html");
 loadComponent("footer", "components/footer.html");
 
+function updateHeaderOnScroll() {
+  const header = document.querySelector(".header");
+
+  if (header) {
+    header.classList.toggle("header--scrolled", window.scrollY > 10);
+  }
+}
+
+window.addEventListener("scroll", updateHeaderOnScroll);
+updateHeaderOnScroll();
+
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 

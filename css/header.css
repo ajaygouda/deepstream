@@ -1,8 +1,21 @@
 /* Header block */
 .header {
-  background: var(--bg-color);
-  color: var(--text-color);
-  position: relative;
+  background: transparent;
+  color: var(--light-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header--scrolled {
+  background: rgba(0, 0, 0, 0.70);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header__content {
@@ -32,7 +45,69 @@
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
+}
+
+/* Search */
+.header__search {
+  display: flex;
+  align-items: center;
+  width: clamp(180px, 24vw, 575px);
+  height: 40px;
+  padding: 4px;
+  background: transparent;
+  border: 2px solid var(--primary-gradient-start);
+  border-radius: 999px;
+}
+
+.header__search-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 28px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--light-color);
+  font: inherit;
+  font-size: 14px;
+}
+
+.header__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header__search-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.header__search-button {
+  display: grid;
+  flex: 0 0 32px;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.header__search-button:hover {
+  filter: brightness(1.15);
+  transform: scale(1.04);
+}
+
+.header__search-button:focus-visible {
+  outline: 3px solid var(--light-color);
+  outline-offset: 3px;
+}
+
+.header__search-button img {
+  width: 24px;
+  height: 24px;
 }
 .header__button {
   border: 2px solid var(--accent-color);
@@ -67,6 +142,27 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .header__search {
+    width: min(52vw, 360px);
+    height: 58px;
+  }
+
+  .header__search-input {
+    padding: 0 16px;
+    font-size: 1rem;
+  }
+
+  .header__search-button {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .header__search-button img {
+    width: 23px;
+    height: 23px;
+  }
+
   /* Swap logos */
   .header__logo-image--desktop {
     display: none;

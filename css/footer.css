@@ -26,7 +26,7 @@
   width: 100%;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
 }
 
 .footer__divider {
@@ -43,33 +43,34 @@
 }
 
 .footer__copyright {
-  font-size: 0.85rem;
+  font-size: 12px;
+  color: var(--light-color);
+  font-weight: 400;
 }
 
 .footer__social {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 
 .footer__social-link {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--light-color);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary-gradient-start);
   transition: background 0.3s ease;
+    filter: grayscale(100%);
 }
-
-.footer__social-link:hover {
-  background: var(--accent-color);
-  color: #fff;
+.footer__social-link img{
+  width: 36px;
+  height: 36px;
 }
 
 .footer__slogan {
-  font-size: 0.95rem;
+  font-size: 16px;
   font-weight: 400;
   text-align: left;
 }
