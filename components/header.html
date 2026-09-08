@@ -1,35 +1,28 @@
 <header class="header">
   <div class="header__content container">
-    <!-- Logo (left side) -->
+    <!-- Logo -->
     <div class="header__logo">
-      <img
-        src="assets/light_logo.svg"
-        alt="Deepstream Logo"
-        class="header__logo-image header__logo-image--desktop"
-      />
-      <img
-        src="assets/color_icon_logo.svg"
-        alt="Deepstream Logo Small"
-        class="header__logo-image header__logo-image--mobile"
-      />
+      <img src="assets/light_logo.svg" alt="Deepstream Consulting Logo" class="header__logo-image header__logo-image--desktop" />
+      <img src="assets/color_icon_logo.svg" alt="Deepstream Consulting Icon Logo" class="header__logo-image header__logo-image--mobile" />
     </div>
 
-    <!-- Right side controls -->
-    <div class="header__actions">
-      <!-- Navigation -->
-      <div class="header__search">
-        <input type="text" placeholder="Search" class="header__search-input" />
-        <button class="header__search-button" type="button" aria-label="Search">
-          <img src="assets/icons/icon-search.svg" alt="Search" />
+    <!-- Actions -->
+    <nav class="header__actions" aria-label="Main navigation">
+      <!-- Search -->
+      <form class="header__search" role="search">
+        <input type="text" name="q" placeholder="Search" class="header__search-input" />
+        <button class="header__search-button" type="submit" aria-label="Search">
+          <img src="assets/icons/icon-search.svg" alt="Search icon" />
         </button>
-      </div>
-      <button
-        class="button button--md button--primary-outlined"
-        id="consult-button"
-      >
+      </form>
+
+      <!-- Consult button -->
+      <a href="#contact" class="button button--md button--primary-outlined" id="consult-button">
         Consult Now
-      </button>
-      <button class="header__menu-toggle" id="menu-toggle">&#9776;</button>
-    </div>
+      </a>
+
+      <!-- Hamburger menu -->
+      <button class="header__menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    </nav>
   </div>
 </header>
