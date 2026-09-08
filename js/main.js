@@ -66,10 +66,16 @@ if (heroSlider) {
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
     slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle("hero-slider__slide--active", slideIndex === currentSlide);
+      slide.classList.toggle(
+        "hero-slider__slide--active",
+        slideIndex === currentSlide,
+      );
     });
     dots.forEach((dot, dotIndex) => {
-      dot.classList.toggle("hero-slider__dot--active", dotIndex === currentSlide);
+      dot.classList.toggle(
+        "hero-slider__dot--active",
+        dotIndex === currentSlide,
+      );
     });
   }
 
@@ -93,10 +99,62 @@ if (heroSlider) {
     });
   });
 
-  heroSlider.addEventListener("mouseenter", () => window.clearInterval(autoSlide));
+  heroSlider.addEventListener("mouseenter", () =>
+    window.clearInterval(autoSlide),
+  );
   heroSlider.addEventListener("mouseleave", restartAutoSlide);
   heroSlider.addEventListener("focusin", () => window.clearInterval(autoSlide));
   heroSlider.addEventListener("focusout", restartAutoSlide);
   showSlide(0);
   restartAutoSlide();
+}
+
+const contactForm = document.getElementById("contact-form");
+const contactStatus = document.getElementById("contact-status");
+
+if (contactForm && contactStatus) {
+  contactForm.addEventListener("reset", () => {
+    contactStatus.textContent = "";
+    contactStatus.className = "contact__status";
+  });
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const submission = Object.fromEntries(formData.entries());
+
+    emailjs
+      .send("service_o7kwwbq", "template_ueccszl", submission)
+      .then(() => {
+        contactForm.reset();
+        contactStatus.textContent = `Thanks ${submission.user_name}. Your message has been sent!`;
+        contactStatus.className = "contact__status contact__status--success";
+
+        // Remove message after 3 seconds
+        setTimeout(() => {
+          contactStatus.textContent = "";
+          contactStatus.className = "contact__status"; // reset to neutral
+        }, 3000);
+      })
+      .catch((error) => {
+        contactStatus.textContent = "Oops! Something went wrong.";
+        contactStatus.className = "contact__status contact__status--error";
+
+        // Remove error after 3 seconds
+        setTimeout(() => {
+          contactStatus.textContent = "";
+          contactStatus.className = "contact__status";
+        }, 3000);
+
+        console.error("EmailJS error:", error);
+      });
+
+    console.log(submission);
+  });
 }
