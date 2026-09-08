@@ -36,10 +36,10 @@
   margin: 10px 0;
 }
 
-.footer__links{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.footer__links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .footer__copyright {
@@ -56,17 +56,23 @@
 .footer__social-link {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
+  background-color: var(--light-color);
   justify-content: center;
   color: var(--primary-gradient-start);
   transition: background 0.3s ease;
-    filter: grayscale(100%);
 }
-.footer__social-link img{
-  width: 36px;
-  height: 36px;
+.footer__social-link img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%) invert(54%) sepia(93%) saturate(1038%)
+    hue-rotate(139deg) brightness(100%);
+}
+
+.footer__social-link:hover {
+  background-color: var(--dark-color);
 }
 
 .footer__slogan {
