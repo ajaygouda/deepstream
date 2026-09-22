@@ -59,21 +59,31 @@
   border-radius: 8px;
   display: flex;
   align-items: center;
-  background-color: var(--light-color);
+  border: 1px solid var(--light-color);
   justify-content: center;
   color: var(--primary-gradient-start);
   transition: background 0.3s ease;
 }
+
+/* 1. Default State: Forces the image icon to be pure white */
 .footer__social-link img {
   width: 24px;
   height: 24px;
+  filter: brightness(0) invert(1); 
+  transition: filter 0.3s ease; /* Adds a smooth transition matching the background */
+}
+
+/* 2. Parent Hover State: Changes background */
+.footer__social-link:hover {
+  background-color: var(--light-color);
+}
+
+/* 3. Image Hover State: Applies your custom color filter when the parent link is hovered */
+.footer__social-link:hover img {
   filter: brightness(0) saturate(100%) invert(54%) sepia(93%) saturate(1038%)
     hue-rotate(139deg) brightness(100%);
 }
 
-.footer__social-link:hover {
-  background-color: var(--dark-color);
-}
 
 .footer__slogan {
   font-size: 16px;
