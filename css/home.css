@@ -22,7 +22,7 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3); /* dark overlay for readability */
+  background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
   z-index: -1;
 }
 
