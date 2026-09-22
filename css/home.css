@@ -174,7 +174,7 @@
 }
 
 .hero__title {
-  font-size: 48px;
+  font-size: 56px;
   margin-bottom: 16px;
   font-weight: 500;
 }
@@ -270,8 +270,8 @@
 }
 
 .info .info__content .info__subtitle {
-  max-width: 80%;
-  font-size: 20px;
+  max-width: 70%;
+  font-size: 16px;
   color: var(--gray-700);
 }
 
@@ -354,7 +354,7 @@
 }
 
 .about__description {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--gray-300);
 }
 
