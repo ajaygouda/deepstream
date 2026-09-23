@@ -706,6 +706,8 @@
   overflow: hidden;
   border: 1px solid var(--gray-300);
   border-radius: 16px;
+  display:flex;
+  flex-direction:column;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -736,6 +738,7 @@
   height: 164px;
   border-radius: 8px;
   object-fit: cover;
+  margin-top:auto;
 }
 
 .services__card:hover {
