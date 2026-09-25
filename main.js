@@ -163,8 +163,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .send("service_o7kwwbq", "template_ueccszl", submission)
         .then(() => {
           contactForm.reset();
-          contactStatus.textContent = `Thanks ${submission.user_name}. Your message has been sent!`;
-          contactStatus.className = "contact__status contact__status--success";
+          contactStatus.innerHTML = `
+        <div style="padding: 1rem; border-radius: 8px; background: #ecfdf5; border: 1px solid #10b981; color: #065f46; margin-bottom: 1rem; font-size: 0.85rem;">
+          <strong>Thank you, ${name}!</strong> Your inquiry has been received. Our solutions engineering team will reach out within 4 business hours.
+        </div>
+      `;
 
           // Remove message after 3 seconds
           setTimeout(() => {
