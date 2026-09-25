@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             contactStatus.textContent = "";
             contactStatus.className = "contact__status"; // reset to neutral
-          }, 3000);
+          }, 5000);
         })
         .catch((error) => {
           contactStatus.textContent = "Oops! Something went wrong.";
