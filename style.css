@@ -139,12 +139,12 @@ select {
   color: #ffffff;
 }
 
-  .logo-web{
-    display: block;
-  }
-  .logo-mobile{
-    display: none;
-  }
+.logo-web {
+  display: block;
+}
+.logo-mobile {
+  display: none;
+}
 
 .brand-icon {
   width: 38px;
@@ -486,6 +486,20 @@ select {
   justify-content: space-between;
 }
 
+.feature-card-action {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cyan-500);
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.feature-card-action svg {
+  width: 16px;
+  height: 16px;
+}
+
 .feature-card:hover {
   transform: translateY(-4px);
   border-color: var(--cyan-500);
@@ -598,6 +612,16 @@ select {
   color: var(--slate-600);
   line-height: 1.6;
 }
+.capability-body a {
+  text-align: right;
+  color: var(--cyan-500);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* Services Section */
 .services {
@@ -671,8 +695,15 @@ select {
   line-height: 1.5;
 }
 
-.service-card a{
-   text-align:right;
+.service-card a {
+  text-align: right;
+  color: var(--cyan-500);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Process Section */
@@ -700,10 +731,10 @@ select {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.tab-btn:first-child{
+.tab-btn:first-child {
   border-radius: 10px 0 0 10px;
 }
-.tab-btn:last-child{
+.tab-btn:last-child {
   border-radius: 0 10px 10px 0;
 }
 
@@ -1029,10 +1060,10 @@ select {
 }
 
 @media (max-width: 768px) {
-  .logo-web{
+  .logo-web {
     display: none;
   }
-  .logo-mobile{
+  .logo-mobile {
     display: block;
   }
   .nav-links {
