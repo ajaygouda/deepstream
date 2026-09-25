@@ -88,8 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderSlide(idx) {
     currentSlide = (idx + slides.length) % slides.length;
     if (slideTag) slideTag.textContent = slides[currentSlide].tag;
-    if (slideIcon) slideIcon.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${slides[currentSlide].iconInner}</svg>`;
-    if (slideCount) slideCount.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    if (slideIcon)
+      slideIcon.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${slides[currentSlide].iconInner}</svg>`;
+    if (slideCount)
+      slideCount.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
     if (slideTitle) slideTitle.textContent = slides[currentSlide].title;
     if (slideDesc) slideDesc.textContent = slides[currentSlide].desc;
     dots.forEach((d, i) => {
@@ -136,21 +138,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 5. Contact Form Handler
+
   const contactForm = document.getElementById("contact-form");
-  const statusNotice = document.getElementById("form-status");
+  const contactStatus = document.getElementById("contact-status");
 
-  contactForm?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nameInput = document.getElementById("contact-name");
-    const name = nameInput ? nameInput.value : "there";
+  if (contactForm && contactStatus) {
+    contactForm.addEventListener("reset", () => {
+      contactStatus.textContent = "";
+      contactStatus.className = "contact__status";
+    });
 
-    if (statusNotice) {
-      statusNotice.innerHTML = `
-        <div style="padding: 1rem; border-radius: 8px; background: #ecfdf5; border: 1px solid #10b981; color: #065f46; margin-bottom: 1rem; font-size: 0.85rem;">
-          <strong>Thank you, ${name}!</strong> Your inquiry has been received. Our solutions engineering team will reach out within 4 business hours.
-        </div>
-      `;
-    }
-    contactForm.reset();
-  });
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      const submission = Object.fromEntries(formData.entries());
+
+      emailjs
+        .send("service_o7kwwbq", "template_ueccszl", submission)
+        .then(() => {
+          contactForm.reset();
+          contactStatus.textContent = `Thanks ${submission.user_name}. Your message has been sent!`;
+          contactStatus.className = "contact__status contact__status--success";
+
+          // Remove message after 3 seconds
+          setTimeout(() => {
+            contactStatus.textContent = "";
+            contactStatus.className = "contact__status"; // reset to neutral
+          }, 3000);
+        })
+        .catch((error) => {
+          contactStatus.textContent = "Oops! Something went wrong.";
+          contactStatus.className = "contact__status contact__status--error";
+
+          // Remove error after 3 seconds
+          setTimeout(() => {
+            contactStatus.textContent = "";
+            contactStatus.className = "contact__status";
+          }, 3000);
+
+          console.error("EmailJS error:", error);
+        });
+
+      console.log(submission);
+    });
+  }
 });

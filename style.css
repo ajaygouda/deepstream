@@ -999,6 +999,9 @@ select {
   padding-bottom: 2.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+.footer-top img{
+   filter: brightness(0) invert(1);
+}
 
 .footer-social {
   display: flex;
